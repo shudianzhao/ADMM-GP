@@ -1,4 +1,4 @@
-[program acronym] -- [short description]
+[graph partition via ADMM] -- [solving graph partition with SDP and extended ADMM]
  
 Copyright (C) 1998--2020 Shudian Zhao <shudian.zhao@aau.at>
  
