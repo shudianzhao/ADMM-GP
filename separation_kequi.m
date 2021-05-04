@@ -49,15 +49,4 @@ function [ b, T, hash, g_new,brk] = separation_kequi( x, b, T, hash, max_ineq, v
   end 
   
   
-%   ax = kc_a(n,m,Tn(:),x(:));  % A(X)>b is the tri. ineq
-%   if size(T,1) <= 40
-%    gamma_new = bn-ax;      % initialize new dual variables % gamma_new is violation A(X)-b 
-%    if min(gamma_new)<0; disp('error separation.'); 
-%       keyboard;
-%    end
-%   if max(gamma_new) < viol_tol;
-%     disp('violation is small');
-%     brk = 1;
-%   end  
-%   end
   
