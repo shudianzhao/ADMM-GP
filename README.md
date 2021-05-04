@@ -72,7 +72,7 @@ GPKC_rounding_flex_rand.m: Vertices-clustering for GPKC.
     f = []
     % max_ineq is the maximum number of violated triangle inequalties
     max_ineq = 100;
-    [f0, T, hash,gamma,brk]=separation3(X,f,T,hash,max_ineq);
+    [f0, T, hash,gamma,brk]=separation_kequi(X,f,T,hash,max_ineq);
     % form data for SDP with inqualtieis 
      [B,f]=formtri_kc(T,f0,n1);
     L = zeros(n1,n1);
@@ -91,3 +91,20 @@ GPKC_rounding_flex_rand.m: Vertices-clustering for GPKC.
 
     [ynew2,LB2] = post_proc_3(Z2,A',B',C,b,f,S2); 
     ```
+   5. Find upper bounds by heuristics
+      * Vector clustering method for the solution of DNN relaxtion
+     ```
+     % rndseed: random seed
+      [part1, newX1,ub1,partcell1] = kequi_rounding(rndseed,X1,k,C);
+     ```
+     * Hyperplane rounding method
+    ```
+    % rndseed: random seed
+    [part1, newX1,ub1,partcell1] = kequi_random(rndseed,X1,k,C);
+    ```
+     * 2-opt method on output from vector clustering method/ hyperplane rounding method
+     ```
+       [partcell1_1,part1_1,newX1_1,ub1_1]= kequi_local(L,k,partcell1,part1,newX1,ub1);
+     ```
+     
+      
