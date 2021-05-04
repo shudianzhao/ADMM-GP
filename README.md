@@ -2,7 +2,7 @@
 
 This package is written based on the following papers:
 
-Angelika Wiegele，Shudian Zhao: SDP-based bounds for graph partition via extended ADMM.
+Angelika Wiegele， Shudian Zhao: SDP-based bounds for graph partition via extended ADMM.
 
 
 ## Generate graphs via Rudy in terminal:
