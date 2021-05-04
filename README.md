@@ -137,7 +137,7 @@ GPKC_rounding_flex_rand.m: Vertices-clustering for GPKC.
      [part1, newX1,ub1,partcell1] = GPKC_rounding_flex_rand(rnd_seed,X1,C,W,a);
      ```
     
-     * 2opt method
+     * 2-opt method
     ```
     [partcell1_1,part1_1,newX1_1,ub1_1]= GPKC_local(Ac,W0,a,partcell1,part1,newX1,ub1);
     ```
