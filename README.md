@@ -1,3 +1,5 @@
+
+
 # ADMM-GP
 
 This package is written based on the following papers:
@@ -42,8 +44,8 @@ GPKC_local.m: 2-opt method for GPKC.
 GPKC_rounding_flex_rand.m: Vertices-clustering for GPKC.
 
 ### Example script:
-* _k-equipartition
-  1. Form the input data (A,b,C) for extended ADMM with the adjacency matrix $Ac$ and the partition number $k$
+* k-equipartition
+  1. Form the input data (A,b,C) for extended ADMM with the adjacency matrix Ac and the partition number k
   ```
   % matlab code
   % Form the SDP relaxation 
@@ -69,7 +71,7 @@ GPKC_rounding_flex_rand.m: Vertices-clustering for GPKC.
   4. Add violated triangle inequalities
 
   
-    * Find violated triangle indices and form the corresponding inequalties $B(X) \geq f$
+    * Find violated triangle indices and form the corresponding inequalties <img src="https://render.githubusercontent.com/render/math?math=\mathcal{B}(X) \geq f">
     ```
     % initialize hash,f
     hash =[];
