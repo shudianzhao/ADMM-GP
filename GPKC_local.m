@@ -1,12 +1,14 @@
-function  [part_cell_final,part_final,newX_final,obj]= GPKC_local(L,W,a,part_cell,part,X,obj);
+function  [part_cell_final,part_final,newX_final,obj]= GPKC_local(Ac,W,a,part_cell,part,X,obj);
 
 % Input: a kequiparition
 % output: a new kequipairtion with better objective function value
 % Objective function: min <L/2, X>, X {0,1}
-% L: adjency matrix
+% Ac: adjency matrix
 % k: the partitioning number
 
-fprintf('Best obj before local adjustment: %6.0d \n',X(:)'*L(:)/2);
+L =  diag(Ac*ones(n1,1))-Ac;
+C= L./2;
+fprintf('Best obj before local adjustment: %6.0d \n',X(:)'*C(:));
 
 part_cell_final = part_cell;
 part_final = part;
@@ -26,7 +28,7 @@ end
 % 
 
 if isempty(obj);
-    obj = L(:)'*X(:)/2;
+    obj = C(:)'*X(:);
 end
 
 for iter=1:mlocal;
