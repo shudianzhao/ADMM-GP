@@ -84,7 +84,7 @@ GPKC_rounding_flex_rand.m: Vertices-clustering for GPKC.
 
     [ynew2,LB2] = post_proc_3(Z2,A',B',C,b,f,S2); 
     ```
-   5. Find upper bounds by heuristics
+   5. Build upper bounds from the SDP solution by heuristics
      * Vector clustering method for the solution of DNN relaxtion
      ```
      % rndseed: random seed
@@ -99,5 +99,30 @@ GPKC_rounding_flex_rand.m: Vertices-clustering for GPKC.
      ```
        [partcell1_1,part1_1,newX1_1,ub1_1]= kequi_local(L,k,partcell1,part1,newX1,ub1);
      ```
-     
-      
+   * GPKC
+   
+    1. Form the GPKC problem with adjacency matrix Ac, vertex weights a and capacity weight W
+        ```
+        [A,B,b,f,C]=make_GPKC(Ac,a,W);
+        ```
+    2. Solve the SDP relaxation with nonnegative constraints
+      ```
+      n1 = size(Ac,1);
+      L = zeros(n1,n1);
+      U = Inf*ones(n1,n1);
+      [ X1 y1, y1_bar, Z1,S1,s1,v1] = mprw_ineq_general(A, B, b, C ,f,L,U,10000);
+      ```
+    3. Get the safe lower bound
+      ```
+        [ynew1,LB1] = post_proc_3(Z1,A',B', C,b,f, S1); 
+      ```
+   
+    4. Build upper bounds from the SDP solution
+      * vector clustering method
+     ``
+     [part1, newX1,ub1,partcell1] = GPKC_rounding_flex_rand(rnd_seed,X1,C,W,a);
+     ```
+      * 2opt method
+      ```
+      [partcell1_1,part1_1,newX1_1,ub1_1]= GPKC_local(Ac,W0,a,partcell1,part1,newX1,ub1);
+      ```
