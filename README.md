@@ -42,7 +42,7 @@ GPKC_local.m: 2-opt method for GPKC.
 GPKC_rounding_flex_rand.m: Vertices-clustering for GPKC.
 
 ### Example script:
-* $k$-equipartition
+* _k-equipartition
   1. Form the input data (A,b,C) for extended ADMM with the adjacency matrix $Ac$ and the partition number $k$
   ```
   % matlab code
