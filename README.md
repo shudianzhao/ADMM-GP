@@ -107,6 +107,7 @@ GPKC_rounding_flex_rand.m: Vertices-clustering for GPKC.
         [A,B,b,f,C]=make_GPKC(Ac,a,W);
         ```
     2. Solve the SDP relaxation with nonnegative constraints
+    
       ```
       n1 = size(Ac,1);
       L = zeros(n1,n1);
