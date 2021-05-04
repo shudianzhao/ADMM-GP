@@ -22,7 +22,7 @@ post_proc_3.m: the post-processing nethod for mprw_ineq_general.m outputs.
 
 kequi_local.m: 2-opt method for k-equipartition.
 
-kequi_rounding.m: Vertices-clustering for k-equipartition.
+kequi_rounding.m: Vector-clustering for k-equipartition.
 
 kequi_random.m: Hyperplane rounding method for k-equipartition.
 
@@ -92,7 +92,7 @@ GPKC_rounding_flex_rand.m: Vertices-clustering for GPKC.
     [ynew2,LB2] = post_proc_3(Z2,A',B',C,b,f,S2); 
     ```
    5. Find upper bounds by heuristics
-      * Vector clustering method for the solution of DNN relaxtion
+     * Vector clustering method for the solution of DNN relaxtion
      ```
      % rndseed: random seed
       [part1, newX1,ub1,partcell1] = kequi_rounding(rndseed,X1,k,C);
