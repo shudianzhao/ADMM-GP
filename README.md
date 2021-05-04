@@ -37,15 +37,8 @@ GPKC_rounding_flex_rand.m: Vertices-clustering for GPKC.
   % matlab code
   % Form the SDP relaxation 
   % <C，X> s.t. A(X) =b, X >= 0, X is postive semidefinite.
-
-  [n1,n1] = size(Ac);
-  L =  diag(Ac*ones(n1,1))-Ac;
-  C= L./2;
-  m = idivide(int16(n1), k,'ceil') ;
-  [Et,b1,Ec]= diag_constr(n1);
-  [Et2, b2, Ec2] = seperate_row(n1,m);
-  A = [Et , Et2 ]; %
-  b = [b1;b2];
+  
+  [A,b,C] = kequi_form(Ac,k);
   ```
   2. Call the extended ADMM fucntion to solve the SDP relaxation with nonnegative constraints
 
