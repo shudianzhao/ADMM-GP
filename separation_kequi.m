@@ -1,4 +1,4 @@
-function [ b, T, hash, g_new,brk] = separation3_x( x, b, T, hash, max_ineq, viol_tol);
+function [ b, T, hash, g_new,brk] = separation_kequi( x, b, T, hash, max_ineq, viol_tol);
 %find new violated triangular constraints at x
 % -x_ij - x_ik +x_jk >=-1  i, j, k \in [n],
 %  x psd, x_ij \in [0,1]
@@ -8,7 +8,7 @@ function [ b, T, hash, g_new,brk] = separation3_x( x, b, T, hash, max_ineq, viol
 % g_new: initial variables for gamma at new constraints (set =0)  
 % new_ineq: minimum number of new inequalities is 
 
-% call:  [ b, T, hash, gamma_new,brk] = separation3( x, b, T, hash,max_ienq,viol_tol);
+% call:  [ b, T, hash, gamma_new,brk] = separation_kequi( x, b, T, hash,max_ienq,viol_tol);
 
 
 
