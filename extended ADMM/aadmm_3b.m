@@ -1,4 +1,4 @@
-function [ Y,y,Z,S,dual,primal, sigma,R,Rt] = aadmm_3b( A, b, C, max_iter, sigma, tol, Y, Z,S, R, Rt)
+function [ Y,y,Z,S,dual,primal, sigma,R,Rt] = aadmm_3b( A, b, C, max_iter, sigma, tol, Y, Z,S)
 % simple "regularization method" : 
 % (based on primal prox, or dual augmented Lagrangien)
 % corresponds to boundary point method, and to block-coordinate descent
@@ -34,10 +34,7 @@ normC0 = full(min(1e12,max(1,sqrt(C(:)'*C(:)))));
 A = A/normA0;
 C = C/normC0; 
 b = b/normb0; 
-%R = R/normA0;
-%R = R/sqrt(normA0);
-%Rt = Rt/normA0;
-%Rt = Rt/sqrt(normA0); 
+
 
 % form A*A' (and cholesky, if not part of input) 
 if size(A,1) == m
@@ -58,7 +55,7 @@ if nargin <= 10;
 end
 
 
-% sinon
+
 normb = norm(b);
 normC = sqrt(C(:)'*C(:));
 
@@ -153,7 +150,7 @@ while done == 0;       % while stopping conditions not satisfies
   X1(X1<0)=0; 
 
 % update Y
-%   Y = (1-1.6)*Y + 1.6*X;
+
    Y = X;
   
   g = b-A * Y(:);
@@ -161,17 +158,14 @@ while done == 0;       % while stopping conditions not satisfies
   
 
 % some output
-% normX = norm(X,'fro');
-% err_d2 = norm(X1,'fro');
+
 err_d = norm( G,'fro'); dual = b'*y*normC0*normb0/normA0; 
 secs = cputime-tstart;
 err_p = norm(g);   primal = C(:)'*Y(:)*normC0*normb0/normA0;
 rel_err_p = err_p/(1+normb); rel_err_d = err_d/(1+normC);
-% rel_err_d2 = err_d2/(1+normX);
 
 
-% err_b1 = norm(Y-projf(Y-S,0,inf));
-% rel_err_b1 = err_b1/(1+norm(Y)+norm(S));
+
 
 
 iter = iter+ 1;
