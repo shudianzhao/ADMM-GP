@@ -6,7 +6,7 @@ obj=inf;
 %% vector clustering method
 %generate the n veoctors from X
  
-% [V] = chol_psd(X);
+
 miter = 1; %100
 % specifiy the random number generator
 rng(seed);
@@ -15,15 +15,14 @@ for round =1:miter;
     part = {};
     part_cell = {};
     vertex = 1:n;
-    % subset_temp =[];
+    
     newX = X;
     for count =1:k;
-        % i = min(vertex);
+    
         idx_rnd = randi(length(vertex));
         i = vertex(idx_rnd);
         vi = newX(i,:);
-    %     vi = V(:,i);
-    %     VV = vi'*V;
+    
         VV=newX*vi';
         logical_vertex = ismember(1:n, vertex);
         VV(~logical_vertex)=-100;
