@@ -3,7 +3,7 @@ n = size(X,1);
 part = {};
 part_cell = {};
 vertex = 1:n;
-% subset_temp =[];
+
 newX = X;
 
 rng(seed);
@@ -11,8 +11,7 @@ while ~isempty(vertex);
    Xa = newX*a';
    sum0 = 0;
    logical_vertex = ismember(1:n, vertex);
-%    Xa(~logical_vertex) = 0;
-%    [~,i] = max(Xa); 
+
 
    idx_rnd = randi(length(vertex));
    i = vertex(idx_rnd);
