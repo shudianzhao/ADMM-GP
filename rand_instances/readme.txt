@@ -17,9 +17,9 @@ Keq_rand_p0.20.mat : Adjacency matrices for graphs of size n=100,200,300,400,500
 
 For GPKC problem, we form the adjacency matrix in the same way and we also randomly generate nonnegative integer weight between (0,1000] for each vertex.
 
-GPKCrandRound_p80.mat:  Adjacency matrices, vetex weights for graphs of size n=100,200,300,400,500,600,700,800,900,1000. The density of graphs is 80%.
-GPKCrandRound_p50.mat:  Adjacency matrices, vetex weights for graphs of size n=100,200,300,400,500,600,700,800,900,1000. The density of graphs is 50%.
-GPKCrandRound_p20.mat:  Adjacency matrices, vetex weights for graphs of size n=100,200,300,400,500,600,700,800,900,1000. The density of graphs is 20%.
+GPKCrandRound_p80.mat:  Adjacency matrices, vetex weights for graphs of size n=100,200,300,400,500. The density of graphs is 80%.
+GPKCrandRound_p50.mat:  Adjacency matrices, vetex weights for graphs of size n=100,200,300,400,500. The density of graphs is 50%.
+GPKCrandRound_p20.mat:  Adjacency matrices, vetex weights for graphs of size n=100,200,300,400,500. The density of graphs is 20%.
 
 The capacity weights for each graph are in:
 
