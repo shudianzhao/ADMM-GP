@@ -7,6 +7,14 @@ This package is written based on the following papers:
 Angelika Wiegele， Shudian Zhao: SDP-based bounds for graph partition via extended ADMM.
 
 
+## Folders summary
+
+* rand_data: benchmark instances used in numerical experiments;
+* extended ADMM: codes for extended ADMM and post processing methods;
+* form_model: codes to form SDP problems;
+* heuristics: codes to build upper bounds for graph paritioning problems.
+
+
 ## Generate graphs via Rudy in terminal:
 
 source ./rudy_code_randGraphs.sh 
