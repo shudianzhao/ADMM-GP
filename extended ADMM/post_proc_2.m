@@ -22,8 +22,7 @@ else
     Zplus = Z;
 end
 %RHS
-% M = C - Zplus;
-M = C- Z;
+M = C - Zplus;
 
 if ~isempty(S);
     [y,LB1]= linprog(-b,At,M(:));
