@@ -1,4 +1,4 @@
-function [ Y,y,y_bar,Z,S,s,v, sigma,iter, secs, dual,primal, R,Rt] = mprw_ineq_general( A, B, b, C, f,L,U,max_iter, sigma, tol, Y, Z,v,s,R, Rt)
+function [ Y,y,y_bar,Z,S,s,v, sigma,iter, secs, dual,primal, R,Rt] = mprw_ineq_general( A, B, b, C, f,L,U,max_iter, sigma, tol, Y, Z,v,s)
 % simple "regularization method" : 
 % (based on primal prox, or dual augmented Lagrangien)
 % corresponds to boundary point method, and to block-coordinate descent
@@ -13,7 +13,7 @@ function [ Y,y,y_bar,Z,S,s,v, sigma,iter, secs, dual,primal, R,Rt] = mprw_ineq_g
 %      we stop once primal and dual relative infeasibility < tol
 % 
 % simplest call: [ X, y,y_bar, Z,S, s,v] = mprw_ineq_general( A, B, b, C ,f);
-% call:[ X,y,y_bar,Z,S,s,v, sigma,R,Rt]   = mprw2_ineq( A, B, b, C, f, max_iter, sigma, tol, X, Z, S,v,s,R, Rt);
+% call:[ X,y,y_bar,Z,S,s,v, sigma]   = mprw2_ineq_general( A, B, b, C, f, max_iter, sigma, tol, X, Z, S,v,s,);
 % optional input (for restart):  sigma, tol, X, Z, S
 
 % no scaling
@@ -174,7 +174,7 @@ while done == 0;       % while stopping conditions not satisfies
   
 
 % update Y
-%   Y = (1-1.6)*Y + 1.6*X;
+
   
   Y = X;  
   g1 = b- A * Y(:); 
@@ -233,9 +233,7 @@ end
 ratio = rel_err_p/rel_err_d;  
 const=1.2; % 1.2
 % 
-%adjust stepsize
-%  ratio = norm(X(:))/norm(Z(:));
- % sigma = (1-weight)*sigma + weight*projf(ratio,t_min,t_max) ;
+
 
 
 
