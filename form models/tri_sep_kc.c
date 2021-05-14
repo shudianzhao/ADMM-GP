@@ -227,27 +227,17 @@ void mexFunction( int nlhs, mxArray *plhs[],
 						else if (hash_curr<h_tmpC[0]) flag=0;
 						else if (hash_curr>h_tmpC[m-1]) flag=0;
 						else if (x>threshold)
-                            flag=binsearch( h_tmpC, hash_curr, 0, m-1);
+                            			flag=binsearch( h_tmpC, hash_curr, 0, m-1);
 						else
 						flag=0;
                 
 						if ((x>threshold) && (flag<1))
 						{ if (x>violl[ind[0]])
 							{
-                              if (hash_curr > 4294967295) {
-                                  printf("hash value %lu \n", hash_curr);
-                                  printf("hash value is supposed to be %lu \n",((typ*1000+i)*1000+j)*1000+k );
-                                  hash_curr_old = 4294967295;
-                                  printf("hash value beyond unsigned long limit %lu \n",hash_curr_old); 
-                                  goto ende;
-                              }
-                              ii = ind[0];
+                              				ii = ind[0];
 								violl[ii] = x;
 								T_tmp[ii] = i; T_tmp[vmax+ii] = j;
 								T_tmp[2*vmax+ii] = k; T_tmp[3*vmax+ii] = typ;
-//                                 printf("hash value %lu \n", hash_curr);
-//                                 hash_curr_old = ((typ*1000+i)*1000+j)*1000+k;
-//                                 printf("((typ*1000+i)*1000+j)*1000+k: %lu \n", hash_curr_old);
 								h_new[ii] = hash_curr;
 								b_tmp[ii] = 0;
 								heapify_n(0,vmax,ind,violl);
@@ -282,7 +272,6 @@ void mexFunction( int nlhs, mxArray *plhs[],
 				if (violl[j]>-1.) {
 					gamma[i] = violl[j];
 					hash[i] = h_new[j];
-//                     printf("hash value %lf \n", hash[i]);
 					T[i] = (double) T_tmp[j];
 					T[cntr+i] = (double) T_tmp[vmax+j];
 					T[2*cntr+i] = (double) T_tmp[vmax*2+j];
