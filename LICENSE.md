@@ -1,6 +1,6 @@
-[graph partition via ADMM] -- [solving graph partition with SDP and extended ADMM]
+[graph partition via ADMM] -- [solving graph partition problems with SDP and extended ADMM]
  
-Copyright (C) 1998--2020 Shudian Zhao <shudian.zhao@aau.at>
+Copyright (C) 1998--2021 Shudian Zhao <shudian.zhao@aau.at>
  
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
