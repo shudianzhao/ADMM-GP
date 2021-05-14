@@ -8,13 +8,7 @@ randiter = 1;
 % specifiy the random number generator
 rng(seed);
 obj=inf;
-% orthogonal vectors
-% r0 = zeros(n,k);
-% for i=1:k;
-%   r0(i,i)=1;  
-% end
 
-% r0 = normrnd(0,1,n,k);
 
 
 
@@ -37,7 +31,7 @@ X = (k*X-1)/(k-1);
 [V] = chol_psd(X);
 V = V;
 
-% R=r0;
+
 
 for iter =1:randiter;
     R = normrnd(0,1,n,k);    
@@ -70,23 +64,7 @@ for iter =1:randiter;
         part_cell = part_cell_temp;
         newX_final = newX;
     end
-    % % random rotate matrix
-    % R_temp = -ones(n,k);
-    % while min(min(R_temp)) <0
-        % R_temp=R;
-        % for riter=1:k;
-        %     rM = eye(n,n);
-        %     randgrad = 2*pi*rand;
-        %     idxs = randperm(n,2);
-        %     idxs = sort(idxs,'ascend');
-        %     rM(idxs(1),idxs(1)) = cos(randgrad);
-        %     rM(idxs(1),idxs(2)) = -sin(randgrad);
-        %     rM(idxs(2),idxs(1)) = sin(randgrad);
-        %     rM(idxs(2),idxs(2)) = cos(randgrad);
-        %     R_temp = rM*R;
-        % end
-    % end
-    % R = R_temp;
+   
 end
 
 for part_id=1:k;
@@ -102,35 +80,3 @@ for i =1:k;
         error('infeasible partition');
     end
 end
-
-% for iter=1:randiter;
-%     for r=1:n;
-%         vi = V(:,r);
-%         score = vi'*R;
-%         [~,part_idx]= max(score);
-%         part_cell{part_idx} = [part_cell{part_idx};r];
-%     end
-% % % random rotate matrix
-%     randgrad = 2*pi*rand;
-%     rM(n-2,n-1) = cos(randgrad);
-%     rM(n-2,n)= -sin(randgrad);
-%     rM(n-1,n-1) = sin(randgrad);
-%     rM(n-1,n) = cos(randgrad);
-%     
-%     R = rM*R;
-%     part_finish = [];
-%     vertex_finish = [];num2str(subset_temp');
-% %     for part_temp=1:k;
-% %        if length(part_cell{part_temp})>m;
-% %            vertex_idx = part_cell{part_temp};
-% %            
-% %            score_temp = V*R(:,part_temp);
-% %            score(~vertex_idx) = -100;
-% %            [~,vertex_new] = maxk(score_temp,m);
-% %            part_cell{part_temp} = vertex_new;
-% %            part_finish = [part_finish;part_temp];
-% %            vertex_finish = union(vertex_finish,vertex_new);
-% %        end
-% %     end
-%     
-% end
