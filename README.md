@@ -4,7 +4,7 @@
 
 This package is written based on the following papers:
 
-Angelika Wiegele， Shudian Zhao: SDP-based bounds for graph partition via extended ADMM. https://arxiv.org/abs/2105.09075
+Angelika Wiegele， Shudian Zhao: SDP-based bounds for graph partition via extended ADMM in arXiv at https://arxiv.org/abs/2105.09075.
 
 
 ## Folders summary
